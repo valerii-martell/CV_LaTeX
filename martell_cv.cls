@@ -7,14 +7,14 @@
 \RequirePackage[dvipsnames]{xcolor} % moved here I guess article class causes option clash with xcolor if used after loading the class
 \LoadClass[11pt]{article}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{muratcan_cv}[2020/04/15 Muratcan CV Class]
+\ProvidesClass{martell_cv}[2022/04/07 Martell CV Class]
 \RequirePackage[sfdefault]{noto}
 \RequirePackage{etoolbox}
 \RequirePackage{pgffor}
 \RequirePackage{titlesec}
 \RequirePackage{tikz}
 \RequirePackage{fontspec}
-\RequirePackage[left=0.75in,top=0.3in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\RequirePackage[left=0.7in,top=0.38in,right=0.7in,bottom=0.38in]{geometry} % Document margins
 \RequirePackage{hyperref}
 \RequirePackage{fontawesome}
 \RequirePackage{mfirstuc}
@@ -40,10 +40,11 @@
 \newcommand*{\setcontactperson}[1]{\def\@contactperson{#1}}
 \newcommand*{\setclaimedposition}[1]{\def\@claimedposition{#1}}
 
-
+\definecolor{linkblue}{rgb}{0.411,0.745,0.999}
 \hypersetup{
-    colorlinks=true,
-    urlcolor=cyan,
+    colorlinks,breaklinks,
+    urlcolor=linkblue,
+    linkcolor=linkblue
 }
 
 % View commands
@@ -129,7 +130,7 @@ Position: & \@claimedposition \\
   {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
   {\ruleafter}                           % Can be used to insert code before the heading
 
-\titlespacing*{\section}{-1pt}{0pt}{0pt}
+\titlespacing*{\section}{-1pt}{-3pt}{0pt}
 
 % Textview commands
 
@@ -150,20 +151,24 @@ Position: & \@claimedposition \\
 }
 
 \newcommand{\datedexplanation}[2]{%
-  \begin{small} \mbox { \hspace{1em} \scshape \footnotesize #1 } \end{small} \hfill \datetext{#2}\\[0.05cm] %
+  \begin{small} \mbox { \hspace{1.5em} \scshape \footnotesize #1 } \end{small} \hfill \datetext{#2}\\[0.05cm] %
 }
 
 \newcommand{\explanationdetail}[1]{%
-    \indent \begin{minipage}{0.96\linewidth} \footnotesize #1 \end{minipage} \\[0.1cm]
+    \indent \begin{minipage}{0.96\linewidth}\hspace{0.5em}\footnotesize #1 \end{minipage} \\[0.01cm]
+}
+
+\newcommand{\summarydetail}[1]{%
+    \indent \begin{minipage}{0.96\linewidth}\vspace{1}\footnotesize #1 \end{minipage} \\[0.2cm]
 }
 
 \newcommand{\itemwithtext}[1]{%
-    \begin{minipage}{\linewidth} \footnotesize \item #1 \end{minipage}
+    \begin{minipage}{\linewidth} \footnotesize \item #1 \end{minipage} 
 }
 
 \newcommand{\addblocktext}[2]{%
   \section{#1} 
-  \indent \explanationdetail{\hspace{4ex} #2}
+  \indent \summarydetail{\hspace{4ex} #2}
 }
 
 \newcommand\createskill[2]{%
@@ -202,4 +207,4 @@ Position: & \@claimedposition \\
 \newcommand\createfootnote{%
   \renewcommand{\footnotesize}{\fontsize{7pt}{11pt}\selectfont}
     \renewcommand\footnoterule{\rule{0.3\linewidth}{0.5pt}}
-    \let\thefootnote\relax\footnote{\today\ / \href{https://github.com/valerii-martell/CV_LaTeX}{source code}}}
+    \let\thefootnote\relax\footnote{\today\ / \href{https://github.com/valerii-martell/CV_LaTeX}{source code}, \href{https://www.overleaf.com/read/jbjyzwftsrsn}{overleaf}}}
