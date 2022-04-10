@@ -151,7 +151,7 @@ Position: & \@claimedposition \\
 }
 
 \newcommand{\datedexplanation}[2]{%
-  \begin{small} \mbox { \hspace{1.5em} \scshape \footnotesize #1 } \end{small} \hfill \datetext{#2}\\[0.05cm] %
+  \begin{small} \mbox { \hspace{1.5em} \scshape \footnotesize #1 } \end{small} \hfill \datetext{#2}\\[0.01cm] %
 }
 
 \newcommand{\explanationdetail}[1]{%
